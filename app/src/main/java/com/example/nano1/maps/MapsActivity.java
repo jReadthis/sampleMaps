@@ -92,26 +92,26 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
 
+        mMap = googleMap;
         mMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
         mMap.setMyLocationEnabled(true);
         UiSettings mapSettings;
         mapSettings = mMap.getUiSettings();
 
         if (loc != null) {
-            LatLng currentPos = new LatLng(loc.getLatitude(), loc.getLongitude());
-            mMap.addMarker(new MarkerOptions().position(currentPos).title("Your Postion"));
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentPos, 17));
-            mapSettings.setZoomControlsEnabled(true);
+
+        //Add a marker in Lima and move the camera
+        LatLng lima = new LatLng(-12.055342, -77.0802911);
+        mMap.addMarker(new MarkerOptions().position(lima).title("Marker in Lima, Peru"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(lima, 13f));
+        mapSettings.setZoomControlsEnabled(true);
         }
-//      else {
-//        //Add a marker in Lima and move the camera
-//        LatLng lima = new LatLng(-12.055342, -77.0802911);
-//        mMap.addMarker(new MarkerOptions().position(lima).title("Marker in Lima, Peru"));
-//        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(lima, 13f));
+            // Display current Postion
+//        LatLng currentPos = new LatLng(loc.getLatitude(), loc.getLongitude());
+//        mMap.addMarker(new MarkerOptions().position(currentPos).title("Your Postion"));
+//        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentPos, 17));
 //        mapSettings.setZoomControlsEnabled(true);
-//        }
     }
 
 
